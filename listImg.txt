@@ -1,0 +1,5 @@
+https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?ribs_blood=0&brain_blood=0&arm_blood=0&mouth_blood=0&eye_blood=0&body=Humanlike_white&eyes=red&facial=maskD&shoes=boots_6&legs=pants_red&clothes=longsleeve_red&shadow-adult=0&shadow-child=0&sex=male&mail=none&armor=16&ammo=none&weapon=none&hat=plate6&arms=6&shoulders=none&bracers=none&gloves=7&shield=on_kite&quiver=none
+
+
+https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?legs=robeMaleW&clothes=formal_shirt&cape=none&capeacc=none&hair=plain_green&weapon=spearNewGreen&armor=none&jacket=tabard
+
