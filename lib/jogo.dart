@@ -62,7 +62,7 @@ class _JogoState extends State<Jogo> implements GameListener {
         ),
         joystick: Joystick(
           keyboardEnable: true,
-          directional: JoystickDirectional(),
+          directional: JoystickDirectional(size: 120),
           // actions: [
           //   JoystickAction(
           //     actionId: 'basic',
