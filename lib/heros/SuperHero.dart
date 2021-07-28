@@ -1,5 +1,5 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:zero/player/sprite_sheet_hero.dart';
+import 'package:zero/player/sprite_sheet.dart';
 
 class SuperHero {
   final String heroId;

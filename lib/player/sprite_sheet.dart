@@ -3,12 +3,10 @@ import 'dart:ui';
 import 'package:bonfire/bonfire.dart';
 
 class SpriteSheetHero {
-  static SpriteSheet? hero1;
-  static SpriteSheet? hero2;
+  static SpriteSheet? slime;
 
   static load() async {
-    hero1 = await _create('robos/torre.png');
-    hero2 = await _create('robos/bispo.png');
+    slime = await _create('slime.png', rows: 20, columns: 10);
   }
 
   static loadSprint(name) async {

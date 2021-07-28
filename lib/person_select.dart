@@ -1,7 +1,9 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:zero/game.dart';
 import 'package:zero/heros/SuperHero.dart';
 import 'package:zero/heros/Heros.dart';
+import 'package:zero/jogo.dart';
 import '/socket/SocketManager.dart';
 
 class PersonSelect extends StatefulWidget {
@@ -13,6 +15,7 @@ class _PersonSelectState extends State<PersonSelect> {
   int count = 0;
   bool loading = false;
   String statusServer = "CONECTANDO";
+  Map<dynamic, dynamic> user = {};
 
   @override
   void initState() {
@@ -230,28 +233,31 @@ class _PersonSelectState extends State<PersonSelect> {
 
   void _listen(data) {
     if (data is Map && data['action'] == 'YOUR_PLAYER') {
-      setState(() {
-        loading = false;
-      });
-
-      print(data);
-
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => Game(
-      //       playersOn: data['data']['playersON'],
-      //       nick: nick,
-      //       playerId: data['data']['id'],
-      //       idCharacter: count,
-      //       position: Vector2(
-      //         double.parse(data['data']['position']['x'].toString()),
-      //         double.parse(data['data']['position']['y'].toString()),
-      //       ),
-      //     ),
-      //   ),
-      // );
-
+      user = {
+        'id': data['data']['id'],
+        'robo': data['data']['robo'],
+        'position': data['data']['position'],
+        'side': data['data']['side'],
+      };
+    }
+    if (data is Map) {
+      Map<dynamic, dynamic> players = data['data']['playersON'];
+      if (players.length == 2) {
+        setState(() {
+          loading = false;
+        });
+        SocketManager().cleanListeners();
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Jogo(
+                playersOn: data['data']['playersON'],
+                playerId: user['id'],
+                robo: user['robo'],
+                side: user['side']),
+          ),
+        );
+      }
     }
   }
 }
